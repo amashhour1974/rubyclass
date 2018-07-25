@@ -1,87 +1,10 @@
-# Introduction to Ruby
-
-An introductory training course for experienced software developers
-who want to learn Ruby.
-
-## Training Details {time="00:00:00"}
-
-Duration:
-  ~ 3 days.
-Purpose:
-  ~ Learn how to program in Ruby.
-Student Skill Level:
-  ~ No prior experience with Ruby.
-  ~ Must have prior experience with an object-oriented language.
-
-## Training Delivery {time="00:00:00"}
-
-  * Ruby Basics
-
-    The first day is spent coming up to speed on Ruby, its syntax, and
-    how to write object-oriented applications with it.  By the end of
-    the day students will have spent the majority of their time
-    writing and experimenting with Ruby.  Students will be comfortable
-    and confident when using the interactive Ruby environment (IRB)
-    and the MiniTest testing framework.
-
-    Students will be exposed to the following concepts during the
-    first day:
-
-    - Ruby Background, Design Goals, and Implementations
-    - Basic Introduction to Ruby's Syntax
-    - Object-oriented programming in Ruby
-    - Basic Control Flow and Conditional Expressions
-    - Core Ruby Collection Classes (Array and Hash)
-    - Syntax Literals for Core Ruby Classes
-    - Blocks and the Iteration Pattern
-    - Converting Variables Between Core Types
-    - How to Read and Understand Ruby Documentation
-    - Unit Testing with [MiniTest] []
-
-  * Practical Ruby
-
-    During their second day, students will experiment with the more
-    practical side of Ruby by creating a RubyGem and performing tasks
-    such as reading data from files.  Topics from the first day will
-    be reinforced while knowledge of Ruby's syntax and core classes
-    will be deepened.
-
-    In order to achieve these goals, the following topics will be
-    taught during the second day:
-
-    - Functional Programming Concepts in Ruby
-    - I/O and File Handling
-    - Instance Method Visibility and Keywords
-    - Class Methods vs. Instance Methods
-    - Working With Regular Expressions in Ruby
-    - Using Modules to Create Namespaces
-    - RubyGems and Dependency Management
-    - Specification Testing with [RSpec] []
-
-  * Intermediate Ruby
-
-    For the final day, students will be exposed to intermediate Ruby
-    concepts while continuing to practice the skills learned during
-    the first two days.  By digging into topics such as exceptions,
-    debugging, and optimization, students will leave with real world
-    Ruby skills.
-
-    Students will become familiar with and practice the following
-    intermediate and (slightly) advanced features of Ruby:
-
-    - Writing an Interactive Script
-    - More Advanced Control Flow Expressions
-    - Using Modules for Code Sharing
-    - Method Dispatching and the Inheritance Hierarchy
-    - Exception Handling and Error Recovery
-    - Interactive Debugging of Ruby Code
-    - Common Optimization Techniques
-
-#  Ruby Basics
+Ruby Basics
+===========
 
 > Never memorize something that you can look up. -- Albert Einstein
 
-## Introduction to the Course
+Introduction
+------------
 
 <div class="notes">
 
@@ -224,19 +147,19 @@ instructor.
 
   * Basic interaction and infix syntax:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb.sh"}
+    ~~~ {exec="../src/examples/irb.sh"}
     1 + 2
     ~~~
 
   * Everything in Ruby is an object:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb.sh"}
+    ~~~ {exec="../src/examples/irb.sh"}
     1.class
     ~~~
 
   * String literals (single and double quotes):
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh"}
+    ~~~ {exec="../src/examples/irb-nil.sh"}
     "Hello World".class
     n = 1; nil
     s1 = "Number #{n + 1}"
@@ -245,14 +168,14 @@ instructor.
 
   * Everything is mutable in Ruby:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh"}
+    ~~~ {exec="../src/examples/irb-nil.sh"}
     s = "Hello"
     s.insert(5, " World")
     ~~~
 
   * Well, almost everything:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh"}
+    ~~~ {exec="../src/examples/irb-nil.sh"}
     n = 1
     n += 1      # There's no n++ or ++n
     n = n + 1   # Above expands to this.
@@ -263,14 +186,14 @@ instructor.
 
   * Ruby automatically promotes fixed integers:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh"}
+    ~~~ {exec="../src/examples/irb-nil.sh"}
     (2 ** 32).class
     (2 ** 64).class
     ~~~
 
   * Ruby's no-value value:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb.sh"}
+    ~~~ {exec="../src/examples/irb.sh"}
     nil
     ~~~
 
@@ -296,23 +219,23 @@ instructor.
 Most objects have methods whose names begin with `to_` for converting
 the object into another type:
 
-~~~ {exec="src/ruby/rbintro/examples/irb.sh"}
+~~~ {exec="../src/examples/irb.sh"}
 1.to_s
 "03".to_i
 ~~~
 
 This is also a great way to guard against the `nil` value:
 
-~~~ {exec="src/ruby/rbintro/examples/irb.sh"}
+~~~ {exec="../src/examples/irb.sh"}
 nil.to_s
 nil.to_i
 ~~~
 
 ### Object Oriented Programming {#rbintro-basics-oop time="00:10:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/basics/syntax_test.rb" token="person"}
+~~~ {.ruby insert="../src/examples/basics/syntax_test.rb" token="person"}
 ~~~
-~~~ {.ruby insert="src/ruby/rbintro/examples/basics/syntax_test.rb" token="new"}
+~~~ {.ruby insert="../src/examples/basics/syntax_test.rb" token="new"}
 ~~~
 
 <div class="notes">
@@ -349,7 +272,7 @@ also shows why the `nil` value can replace any other value.
 
 </div>
 
-![](diagrams/ruby/ruby/classes.pdf)
+![](../diagrams/classes.dot)
 
 ### Lab: Write a Class in Ruby
 
@@ -389,7 +312,7 @@ Noteworthy points:
 
 ### Reference Implementation {time="00:05:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/basics/candy_bar_test.rb" token="candy_bar"}
+~~~ {.ruby insert="../src/examples/basics/candy_bar_test.rb" token="candy_bar"}
 ~~~
 
 </div>
@@ -401,12 +324,12 @@ Noteworthy points:
 
   #. Use the following code as a template.
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/basics/candy_bar_test.rb" token="require"}
+~~~ {.ruby insert="../src/examples/basics/candy_bar_test.rb" token="require"}
 ~~~
 ~~~ {.ruby}
 require('candy_bar')
 ~~~
-~~~ {.ruby insert="src/ruby/rbintro/examples/basics/candy_bar_test.rb" token="candy_bar_test"}
+~~~ {.ruby insert="../src/examples/basics/candy_bar_test.rb" token="candy_bar_test"}
 ~~~
 
 ### Lab: Unit Testing with MiniTest {time="00:08:00"}
@@ -417,7 +340,7 @@ require('candy_bar')
 
   #. Execute the test file: `ruby -w -I. candy_bar_test.rb`
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/basics/candy_bar_test.rb" token="initial"}
+~~~ {.ruby insert="../src/examples/basics/candy_bar_test.rb" token="initial"}
 ~~~
 
 ### Lab: Unit Testing with MiniTest
@@ -441,9 +364,9 @@ Write more tests to confirm:
 
 ### Reference Implementation {#rbintro-basics-lab3-done time="00:05:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/basics/candy_bar_test.rb" token="bites"}
+~~~ {.ruby insert="../src/examples/basics/candy_bar_test.rb" token="bites"}
 ~~~
-~~~ {.ruby insert="src/ruby/rbintro/examples/basics/candy_bar_test.rb" token="name"}
+~~~ {.ruby insert="../src/examples/basics/candy_bar_test.rb" token="name"}
 ~~~
 
 </div>
@@ -488,9 +411,9 @@ We currently have something like the following:
 
 </div>
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/syntax/candy_bar_test.rb" token="getter"}
+~~~ {.ruby insert="../src/examples/syntax/candy_bar_test.rb" token="getter"}
 ~~~
-~~~ {.ruby insert="src/ruby/rbintro/examples/syntax/candy_bar_test.rb" token="getter-example"}
+~~~ {.ruby insert="../src/examples/syntax/candy_bar_test.rb" token="getter-example"}
 ~~~
 
 ### Adding a Setter Method {time="00:05:00"}
@@ -501,16 +424,16 @@ Let's add a way to change the candy bar's name.
 
 </div>
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/syntax/candy_bar_test.rb" token="setter"}
+~~~ {.ruby insert="../src/examples/syntax/candy_bar_test.rb" token="setter"}
 ~~~
-~~~ {.ruby insert="src/ruby/rbintro/examples/syntax/candy_bar_test.rb" token="setter-example"}
+~~~ {.ruby insert="../src/examples/syntax/candy_bar_test.rb" token="setter-example"}
 ~~~
 
 ### Warnings For Setter Methods {time="00:05:00"}
 
 *Warning:* Setter methods must always have a receiver!
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/syntax/candy_bar_test.rb" token="warning"}
+~~~ {.ruby insert="../src/examples/syntax/candy_bar_test.rb" token="warning"}
 ~~~
 
 ### Helper Methods For Writing Accessor Methods {time="00:05:00"}
@@ -546,7 +469,7 @@ We're going to add attribute accessors to the `CandyBar` class.
 
 ### Reference Implementation {time="00:05:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/syntax/candy_bar_test.rb" token="with-accessors"}
+~~~ {.ruby insert="../src/examples/syntax/candy_bar_test.rb" token="with-accessors"}
 ~~~
 
 </div>
@@ -555,9 +478,9 @@ We're going to add attribute accessors to the `CandyBar` class.
 
 What's the difference between the following?
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/syntax/candy_bar_test.rb" token="with-string"}
+~~~ {.ruby insert="../src/examples/syntax/candy_bar_test.rb" token="with-string"}
 ~~~
-~~~ {.ruby insert="src/ruby/rbintro/examples/syntax/candy_bar_test.rb" token="with-symbol"}
+~~~ {.ruby insert="../src/examples/syntax/candy_bar_test.rb" token="with-symbol"}
 ~~~
 
 <div class="notes">
@@ -585,13 +508,13 @@ Start `irb` and follow along.
 
   * Symbols are instances of a class too:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb.sh"}
+    ~~~ {exec="../src/examples/irb.sh"}
     :name.class
     ~~~
 
   * Converting between strings and symbols:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb.sh"}
+    ~~~ {exec="../src/examples/irb.sh"}
     :name.class
     :name.to_s
     "name".to_sym
@@ -599,7 +522,7 @@ Start `irb` and follow along.
 
   * New strings always allocate memory, symbols don't:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb.sh"}
+    ~~~ {exec="../src/examples/irb.sh"}
     "name".object_id == "name".object_id
     :name.object_id  == :name.object_id
     ~~~
@@ -640,27 +563,27 @@ question mark is part of the method's name.
 
 ### Conditional Expressions (`if...end`) {time="00:03:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/syntax/conditional_test.rb" token="only-if"}
+~~~ {.ruby insert="../src/examples/syntax/conditional_test.rb" token="only-if"}
 ~~~
 
 ### Conditional Expressions (`if...elsif...else...end`) {time="00:03:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/syntax/conditional_test.rb" token="full-if"}
+~~~ {.ruby insert="../src/examples/syntax/conditional_test.rb" token="full-if"}
 ~~~
 
 ### Conditional Expressions: (`if` modifier) {time="00:03:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/syntax/conditional_test.rb" token="if-mod"}
+~~~ {.ruby insert="../src/examples/syntax/conditional_test.rb" token="if-mod"}
 ~~~
 
 ### Conditional Expressions: Assignment Works! {time="00:03:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/syntax/conditional_test.rb" token="if-assign"}
+~~~ {.ruby insert="../src/examples/syntax/conditional_test.rb" token="if-assign"}
 ~~~
 
 ### Conditional Expressions: (`unless`) {time="00:03:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/syntax/conditional_test.rb" token="if-or-unless"}
+~~~ {.ruby insert="../src/examples/syntax/conditional_test.rb" token="if-or-unless"}
 ~~~
 
 ### Loops vs. the Iterator Pattern {time="00:05:00"}
@@ -673,7 +596,7 @@ for (int i=0; i<100; ++i) { /* ... */ }
 
 Ruby uses the *Iterator Pattern* instead:
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/syntax/iterator_test.rb" token="times"}
+~~~ {.ruby insert="../src/examples/syntax/iterator_test.rb" token="times"}
 ~~~
 
 <div class="notes">
@@ -714,14 +637,15 @@ Make the following changes to your `CandyBar` class and test:
 
 ### Reference Implementation {time="00:05:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/syntax/candy_bar_test.rb" token="bite-if"}
+~~~ {.ruby insert="../src/examples/syntax/candy_bar_test.rb" token="bite-if"}
 ~~~
-~~~ {.ruby insert="src/ruby/rbintro/examples/syntax/candy_bar_test.rb" token="bite-test"}
+~~~ {.ruby insert="../src/examples/syntax/candy_bar_test.rb" token="bite-test"}
 ~~~
 
 </div>
 
-## Core Collection Classes
+Core Collection Classes
+-----------------------
 
 <div class="notes">
 
@@ -760,7 +684,7 @@ Open `irb` and follow along.
 
   * Create a new `Array` (explicit syntax):
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb.sh"}
+    ~~~ {exec="../src/examples/irb.sh"}
     a = Array.new
     a.push(1)
     a << "Hello"
@@ -771,7 +695,7 @@ Open `irb` and follow along.
 
   * Create a new `Array` (array literal):
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb.sh"}
+    ~~~ {exec="../src/examples/irb.sh"}
     a = [1, "Hello"]
     a.size
     a[1]
@@ -816,12 +740,12 @@ separator or "`#`".  For example:
 
 ### Another Look at the Iteration Pattern {time="00:03:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/core_classes/iterator_test.rb" token="array-iterator"}
+~~~ {.ruby insert="../src/examples/core_classes/iterator_test.rb" token="array-iterator"}
 ~~~
 
 ### Block Return Values Sometimes Matter {time="00:03:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/core_classes/iterator_test.rb" token="array-select"}
+~~~ {.ruby insert="../src/examples/core_classes/iterator_test.rb" token="array-select"}
 ~~~
 
 ### Lab: From Bites to Percentages
@@ -852,7 +776,7 @@ the percentage eaten with each bite.
 
 ### Reference Implementation {time="00:05:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/core_classes/candy_bar_test.rb" token="using-array"}
+~~~ {.ruby insert="../src/examples/core_classes/candy_bar_test.rb" token="using-array"}
 ~~~
 
 </div>
@@ -873,7 +797,7 @@ Open `irb` and follow along.
 
   * Create a new `Hash` (explicit syntax):
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb.sh"}
+    ~~~ {exec="../src/examples/irb.sh"}
     h = Hash.new
     h["key"] = "value"
     h.size
@@ -881,7 +805,7 @@ Open `irb` and follow along.
 
   * Create a new `Hash` (explicit syntax):
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb.sh"}
+    ~~~ {exec="../src/examples/irb.sh"}
     h = Hash.new
     h[:key] = "value"
     h.size
@@ -890,7 +814,7 @@ Open `irb` and follow along.
 
   * Create a new `Hash` (hash literal):
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb.sh"}
+    ~~~ {exec="../src/examples/irb.sh"}
     h = {"key" => "value"}
     h.size
     h["key"]
@@ -898,7 +822,7 @@ Open `irb` and follow along.
 
   * Alternative `Hash` syntax literal:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb.sh"}
+    ~~~ {exec="../src/examples/irb.sh"}
     h = {key: "value"}
     h.size
     ~~~
@@ -915,14 +839,14 @@ Open `irb` and follow along.
 
   * Get a value using a key:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh|tail -2"}
+    ~~~ {exec="../src/examples/irb-nil.sh|tail -2"}
     h = {"Jan" => 1, "Feb" => 2}; nil
     h["Jan"]
     ~~~
 
   * Check if an entry exists:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh|tail -2"}
+    ~~~ {exec="../src/examples/irb-nil.sh|tail -2"}
     h = {"Jan" => 1, "Feb" => 2}; nil
     h.has_key?("Jan")
     ~~~
@@ -937,14 +861,14 @@ Open `irb` and follow along.
 
   * Get an array of all of the keys:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh|tail -2"}
+    ~~~ {exec="../src/examples/irb-nil.sh|tail -2"}
     h = {"Jan" => 1, "Feb" => 2}; nil
     h.keys
     ~~~
 
   * Get an array of all of the values:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh|tail -2"}
+    ~~~ {exec="../src/examples/irb-nil.sh|tail -2"}
     h = {"Jan" => 1, "Feb" => 2}; nil
     h.values
     ~~~
@@ -978,17 +902,19 @@ the bites.
 
 ### Reference Implementation {time="00:05:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/core_classes/candy_bar_test.rb" token="using-hash"}
+~~~ {.ruby insert="../src/examples/core_classes/candy_bar_test.rb" token="using-hash"}
 ~~~
 
 </div>
 
-# Practical Ruby
+Practical Ruby
+==============
 
 > Somewhere, something incredible is waiting to be known. -- Carl
 > Sagan
 
-## Functional Programming and the Enumerable Module
+Functional Programming and the Enumerable Module
+------------------------------------------------
 
 <div class="notes">
 
@@ -1038,7 +964,7 @@ lesson will focus on modules as a way to share code and the
 
 ### Closer Look: The `map` Method {time="00:05:00"}
 
-![](diagrams/ruby/ruby/map.pdf)
+![](../diagrams/map.dot)
 
 <div class="notes">
 
@@ -1059,7 +985,7 @@ Noteworthy points:
 The new array returned from `map` will always have the same number of
 elements as the source array.
 
-~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh"}
+~~~ {exec="../src/examples/irb-nil.sh"}
 numbers = [1, 2, 3, 4]; nil
 numbers.map {|n| n + 2}
 ~~~
@@ -1071,7 +997,7 @@ key and value for each entry.  Notice that `map` always returns an
 array.  For hashes, the new array returned from `map` will have the
 same number elements as the hash has entries.
 
-~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh"}
+~~~ {exec="../src/examples/irb-nil.sh"}
 h = {"Jan" => 1, "Feb" => 2}; nil
 h.map {|k, v| "#{k} is #{v}"}
 ~~~
@@ -1099,31 +1025,31 @@ practice makes perfect, let's put `map` into action.
 
   * From `candy_bar.rb`:
 
-    ~~~ {.ruby insert="src/ruby/rbintro/examples/core_classes/candy_bar_test.rb" token="people"}
+    ~~~ {.ruby insert="../src/examples/core_classes/candy_bar_test.rb" token="people"}
     ~~~
 
   * From `candy_bar_test.rb`:
 
-    ~~~ {.ruby insert="src/ruby/rbintro/examples/core_classes/candy_bar_test.rb" token="people-test"}
+    ~~~ {.ruby insert="../src/examples/core_classes/candy_bar_test.rb" token="people-test"}
     ~~~
 
 ### A Slightly Better Version {time="00:03:00"}
 
   * From `candy_bar.rb`:
 
-    ~~~ {.ruby insert="src/ruby/rbintro/examples/core_classes/candy_bar_test.rb" token="people-better"}
+    ~~~ {.ruby insert="../src/examples/core_classes/candy_bar_test.rb" token="people-better"}
     ~~~
 
   * From `candy_bar_test.rb`:
 
-    ~~~ {.ruby insert="src/ruby/rbintro/examples/core_classes/candy_bar_test.rb" token="people-better-test"}
+    ~~~ {.ruby insert="../src/examples/core_classes/candy_bar_test.rb" token="people-better-test"}
     ~~~
 
 </div>
 
 ### Closer Look: The `select` Method {time="00:05:00"}
 
-![](diagrams/ruby/ruby/select.pdf)
+![](../diagrams/select.dot)
 
 <div class="notes">
 
@@ -1146,7 +1072,7 @@ array that contains only those elements for which the block returns
 `true`.  Because of that, `select` may return an array that has fewer
 elements than the source array.
 
-~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh"}
+~~~ {exec="../src/examples/irb-nil.sh"}
 numbers = [1, 2, 3, 4]; nil
 numbers.select {|n| n >= 3}
 ~~~
@@ -1159,7 +1085,7 @@ from `Enumerable`.  This allows it to return a hash instead of an
 array since the `select` method in `Enumerable` always returns an
 array.
 
-~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh"}
+~~~ {exec="../src/examples/irb-nil.sh"}
 h = {"Jan" => 1, "Feb" => 2}; nil
 h.select {|k, v| v > 1}
 ~~~
@@ -1186,7 +1112,7 @@ than their fair share of the candy bar.
 
 ### Reference Implementation {time="00:05:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/core_classes/candy_bar_test.rb" token="hogs"}
+~~~ {.ruby insert="../src/examples/core_classes/candy_bar_test.rb" token="hogs"}
 ~~~
 
 </div>
@@ -1215,7 +1141,8 @@ Things to remember when using blocks created with `do...end`:
   * When using a block to iterate, you can use `next` and `break` to
     control the iteration
 
-## Structuring Nontrivial Ruby Applications
+Structuring Nontrivial Ruby Applications
+----------------------------------------
 
 <div class="notes">
 
@@ -1233,7 +1160,7 @@ a typical Ruby project is structured.
 
 ### Typical Application Layout {time="00:05:00"}
 
-![](diagrams/ruby/ruby/layout.pdf)
+![](../diagrams/layout.dot)
 
 ### Introduction to RubyGems {time="00:03:00"}
 
@@ -1298,12 +1225,12 @@ will be used for the rest of the day.
 
   * Creating a module:
 
-    ~~~ {.ruby insert="src/ruby/rbintro/examples/core_classes/namespace_test.rb" token="module"}
+    ~~~ {.ruby insert="../src/examples/core_classes/namespace_test.rb" token="module"}
     ~~~
 
   * Instantiating a class from a module:
 
-    ~~~ {.ruby insert="src/ruby/rbintro/examples/core_classes/namespace_test.rb" token="weather"}
+    ~~~ {.ruby insert="../src/examples/core_classes/namespace_test.rb" token="weather"}
     ~~~
 
 <div class="notes">
@@ -1353,17 +1280,18 @@ We'll also write tests for these new files.
 
 ### Reference Implementation (`Album`) {time="00:03:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/structuring/discography_spec.rb" token="album"}
+~~~ {.ruby insert="../src/examples/structuring/discography_spec.rb" token="album"}
 ~~~
 
 ### Reference Implementation (`Artist`) {time="00:03:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/structuring/discography_spec.rb" token="artist"}
+~~~ {.ruby insert="../src/examples/structuring/discography_spec.rb" token="artist"}
 ~~~
 
 </div>
 
-## Testing with RSpec
+Testing with RSpec
+------------------
 
 <div class="notes">
 
@@ -1447,17 +1375,18 @@ Noteworthy points:
 
 ### Reference Implementation (Constant) {time="00:02:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/structuring/discography_spec.rb" token="constant"}
+~~~ {.ruby insert="../src/examples/structuring/discography_spec.rb" token="constant"}
 ~~~
 
 ### Reference Implementation (Test) {time="00:03:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/structuring/discography_spec.rb" token="spec"}
+~~~ {.ruby insert="../src/examples/structuring/discography_spec.rb" token="spec"}
 ~~~
 
 </div>
 
-## Loading Data From YAML Files
+Loading Data From YAML Files
+----------------------------
 
 <div class="notes">
 
@@ -1499,7 +1428,7 @@ in a later lab.
 Create a YAML file for your discography application called
 `artists.yml` with the following formatting:
 
-~~~ {.yaml insert="src/ruby/rbintro/examples/data/artists.yml"}
+~~~ {.yaml insert="../src/examples/data/artists.yml"}
 ~~~
 
 ### Lab: Playing with IRB and YAML
@@ -1515,15 +1444,15 @@ Start `irb` and play with your YAML data:
 
   #. Load the YAML library:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh"}
+    ~~~ {exec="../src/examples/irb-nil.sh"}
     require("yaml"); nil
     ~~~
 
   #. Use the `YAML::load_file` method (using your own file):
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh|tail -n +5|sed 's/,/,\n /g'|sed 's/file_name/\"file.yml\"/'"}
+    ~~~ {exec="../src/examples/irb-nil.sh|tail -n +5|sed 's/,/,\n /g'|sed 's/file_name/\"file.yml\"/'"}
     require("yaml")
-    file_name = "src/ruby/rbintro/examples/data/artists.yml"
+    file_name = "../src/examples/data/artists.yml"
     data = YAML.load_file(file_name); nil
     data.first["albums"].first
     ~~~
@@ -1551,7 +1480,7 @@ from the file system.
 
 ### Brief Introduction to Class Methods {time="00:05:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/callbacks/class_meth_test.rb" token="battery"}
+~~~ {.ruby insert="../src/examples/callbacks/class_meth_test.rb" token="battery"}
 ~~~
 
 ### Lab: Update the `Library` Class to Load Files
@@ -1578,7 +1507,7 @@ that file, and load artists using the YAML library.
 
 ### Reference Implementation {time="00:05:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/structuring/discography_test.rb" token="library-open"}
+~~~ {.ruby insert="../src/examples/structuring/discography_test.rb" token="library-open"}
 ~~~
 
 </div>
@@ -1612,22 +1541,23 @@ few more class helper methods.
 
   * The `Album::from_hash` method:
 
-    ~~~ {.ruby insert="src/ruby/rbintro/examples/structuring/discography_test.rb" token="album-from-hash"}
+    ~~~ {.ruby insert="../src/examples/structuring/discography_test.rb" token="album-from-hash"}
     ~~~
 
   * The `Artist::from_hash` method:
 
-    ~~~ {.ruby insert="src/ruby/rbintro/examples/structuring/discography_test.rb" token="artist-from-hash"}
+    ~~~ {.ruby insert="../src/examples/structuring/discography_test.rb" token="artist-from-hash"}
     ~~~
 
   * The `Library::open` method:
 
-    ~~~ {.ruby insert="src/ruby/rbintro/examples/structuring/discography_test.rb" token="library-open2"}
+    ~~~ {.ruby insert="../src/examples/structuring/discography_test.rb" token="library-open2"}
     ~~~
 
 </div>
 
-## Regular Expressions in Ruby
+Regular Expressions in Ruby
+---------------------------
 
 <div class="notes">
 
@@ -1687,7 +1617,7 @@ world.
 
 Ruby's regular expression literals:
 
-~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh"}
+~~~ {exec="../src/examples/irb-nil.sh"}
 r = /^\w+$/; nil
 r.class
 
@@ -1730,7 +1660,7 @@ for the following classes/methods and experiment with them in `irb`:
 
 Extracting capture groups from a `MatchData`:
 
-~~~ {exec="src/ruby/rbintro/examples/irb.sh"}
+~~~ {exec="../src/examples/irb.sh"}
 match = "Hello Ruby!".match(/^\w+\s+(\w+)/)
 
 match[1]
@@ -1792,17 +1722,19 @@ considered when sorting.  These include "the", "a", and "an".
 
   * The `Artist#sort_name` method:
 
-    ~~~ {.ruby insert="src/ruby/rbintro/examples/structuring/discography_test.rb" token="artist-sort-name"}
+    ~~~ {.ruby insert="../src/examples/structuring/discography_test.rb" token="artist-sort-name"}
     ~~~
 
 </div>
 
-# Intermediate Ruby
+Intermediate Ruby
+=================
 
 > An expert is a person who has made all the mistakes that can be made
 > in a very narrow field. -- Niels Bohr
 
-## I/O and Control Flow
+I/O and Control Flow
+--------------------
 
 <div class="notes">
 
@@ -1912,7 +1844,7 @@ user.
   * The `String#chomp` method can be used to remove a trailing newline
     from a string.  It returns a new string with the newline removed.
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh"}
+    ~~~ {exec="../src/examples/irb-nil.sh"}
     input = "exit\n";nil
     input.chomp
     input
@@ -1920,7 +1852,7 @@ user.
 
   * The `String#chomp!` method mutates the receiver.
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh"}
+    ~~~ {exec="../src/examples/irb-nil.sh"}
     input = "exit\n";nil
     input.chomp!
     input
@@ -1970,7 +1902,7 @@ an artist name and a list of albums.
 
 ### Introducing the `case` Expression {time="00:03:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/control/case_test.rb" token="case-input"}
+~~~ {.ruby insert="../src/examples/control/case_test.rb" token="case-input"}
 ~~~
 
 ### Lab: Replacing `if` with `case`
@@ -1988,7 +1920,8 @@ into use and clean things up a bit.
 
   #. Experiment with your script and make sure it's still working.
 
-## Code Sharing with Modules
+Code Sharing with Modules
+-------------------------
 
 <div class="notes">
 
@@ -2059,7 +1992,8 @@ to specify their desired sorting order for albums.
   * It's better to think of modules as introducing code through
     inheritance.
 
-## Method Dispatching and the Inheritance Hierarchy
+Method Dispatching and the Inheritance Hierarchy
+------------------------------------------------
 
 <div class="notes">
 
@@ -2080,11 +2014,11 @@ including a module silently alters the inheritance hierarchy.
 
 ### The Inheritance Hierarchy (Part 1) {time="00:03:00"}
 
-![](diagrams/ruby/ruby/artist-wo-module.pdf)
+![](../diagrams/artist-wo-module.dot)
 
 ### The Inheritance Hierarchy (Part 2) {time="00:03:00"}
 
-![](diagrams/ruby/ruby/artist-w-module.pdf)
+![](../diagrams/artist-w-module.dot)
 
 
 ### Seeing for Yourself {time="00:10:00"}
@@ -2120,7 +2054,8 @@ Safety Tip: When you define a method named `method_missing` you are
 probably doing something wrong.  In other words, don't use
 `method_missing`.
 
-## Raising and Rescuing Exceptions
+Raising and Rescuing Exceptions
+-------------------------------
 
 <div class="notes">
 
@@ -2154,19 +2089,19 @@ Open `irb` and follow along.
 
   * Raising a `String`:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh|head -2"}
+    ~~~ {exec="../src/examples/irb-nil.sh|head -2"}
     raise("FAIL!")
     ~~~
 
   * Which is a shortcut for:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb-nil.sh|head -2"}
+    ~~~ {exec="../src/examples/irb-nil.sh|head -2"}
     raise(RuntimeError, "FAIL!")
     ~~~
 
   * They're just classes tough:
 
-    ~~~ {exec="src/ruby/rbintro/examples/irb.sh"}
+    ~~~ {exec="../src/examples/irb.sh"}
     e = RuntimeError.new("FAIL!")
     e.message
     ~~~
@@ -2175,18 +2110,18 @@ Open `irb` and follow along.
 
 ### The Exception Class Hierarchy (Incomplete) {time="00:03:00"}
 
-![](diagrams/ruby/ruby/exceptions.pdf)
+![](../diagrams/exceptions.dot)
 
 ### Creating Your Own Exceptions {time="00:06:00"}
 
 Creating the class:
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/exception_basics/custom_test.rb" token="class"}
+~~~ {.ruby insert="../src/examples/exception_basics/custom_test.rb" token="class"}
 ~~~
 
 Raising an exception with it:
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/exception_basics/custom_test.rb" token="raise"}
+~~~ {.ruby insert="../src/examples/exception_basics/custom_test.rb" token="raise"}
 ~~~
 
 <div class="notes">
@@ -2236,17 +2171,17 @@ that exception and print a useful error message.
 
 ### Rescuing Exceptions {time="00:03:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/exception_basics/exception_test.rb" token="begin"}
+~~~ {.ruby insert="../src/examples/exception_basics/exception_test.rb" token="begin"}
 ~~~
 
 ### Writing Exception Safe Code {time="00:03:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/exception_basics/exception_test.rb" token="ensure"}
+~~~ {.ruby insert="../src/examples/exception_basics/exception_test.rb" token="ensure"}
 ~~~
 
 ### All Parts Together {time="00:03:00"}
 
-~~~ {.ruby insert="src/ruby/rbintro/examples/exception_basics/exception_test.rb" token="all"}
+~~~ {.ruby insert="../src/examples/exception_basics/exception_test.rb" token="all"}
 ~~~
 
 ### Lab: Improving Error Messages in the Interactive Script
@@ -2278,7 +2213,8 @@ let's rescue that exception and produce a nice error message instead.
 
   * They're for control flow, and not exceptions.
 
-## Interactive Debugging of Ruby Code
+Interactive Debugging of Ruby Code
+----------------------------------
 
 <div class="notes">
 
@@ -2353,7 +2289,8 @@ Follow along with the instructor.
 
 </div>
 
-## Common Optimization Techniques
+Common Optimization Techniques
+------------------------------
 
 <div class="notes">
 
@@ -2394,7 +2331,7 @@ Profile it!  (You knew that though.)
 
 ### Caching Expensive Computations: Problem {time="00:03:00"}
 
-~~~ {.ruby insert="src/ruby/effrb/performance/memoize_test.rb" token="shipped"}
+~~~ {.ruby insert="../src/examples/effrb/memoize_test.rb" token="shipped"}
 ~~~
 
 ### Expanding the "`||=`" Operator {time="00:03:00"}
@@ -2413,7 +2350,7 @@ x = x || y
 
 ### Caching Expensive Computations: Memoization {time="00:05:00"}
 
-~~~ {.ruby insert="src/ruby/effrb/performance/memoize_test.rb" token="shipped-memoize"}
+~~~ {.ruby insert="../src/examples/effrb/memoize_test.rb" token="shipped-memoize"}
 ~~~
 
 <div class="notes">
@@ -2445,12 +2382,12 @@ Open `irb` and experiment with the "`||=`" operator.
 
 ### Another Common Problem in Ruby: Literals {time="00:03:00"}
 
-~~~ {.ruby insert="src/ruby/effrb/performance/literals_test.rb" token="inloop-fatal-2"}
+~~~ {.ruby insert="../src/examples/effrb/literals_test.rb" token="inloop-fatal-2"}
 ~~~
 
 ### Avoid Literals in Loops {time="00:05:00"}
 
-~~~ {.ruby insert="src/ruby/effrb/performance/literals_test.rb" token="outloop-const"}
+~~~ {.ruby insert="../src/examples/effrb/literals_test.rb" token="outloop-const"}
 ~~~
 
 <div class="notes">
@@ -2475,11 +2412,13 @@ Try to limit your metaprogramming voodoo to:
 
   * The time you'd generally consider to be "compile time".
 
-# Resources and Recommendations
+Resources and Recommendations {.unnumbered}
+===========================================
 
 A helpful collection of tips and links to help you after the course.
 
-## Ruby Key Points to Remember {time="00:00:00"}
+Ruby Key Points to Remember {.unnumbered}
+-----------------------------------------
 
   * Number one issue: watch out for values being `nil`.  One of the
     leading causes of failing applications in the wild are unexpected
@@ -2499,7 +2438,8 @@ A helpful collection of tips and links to help you after the course.
   * Mocking can lead to untested code.  Be careful when using test
     mocking.  Try to only mock code which is tested in some other way.
 
-## Ruby Information and Documentation
+Ruby Information and Documentation {.unnumbered}
+------------------------------------------------
 
   * [The Ruby Programming Language][ruby-book]
 
@@ -2511,10 +2451,46 @@ A helpful collection of tips and links to help you after the course.
 
   * [Official Ruby webpage][mri]
 
-## Ways to Practice Ruby
+Ways to Practice Ruby {.unnumbered}
+-----------------------------------
 
   * [Exercism.io][]
 
   * [Ruby Koans][]
 
   * [Codementor][]
+
+<!-- Ruby Related Technologies -->
+[mri]: http://www.ruby-lang.org
+[ruby-doc]: http://ruby-doc.org
+[ruby-book]: https://www.safaribooksonline.com/library/view/the-ruby-programming/9780596516178/
+[jruby]: http://jruby.org/
+[rubymotion]: http://www.rubymotion.com/
+[minitest]: http://docs.seattlerb.org/minitest/
+[rspec]: http://rspec.info/
+[cucumber]: http://cukes.info/
+[capybara]: https://github.com/jnicklas/capybara
+[effective ruby]: http://www.effectiveruby.com/
+[enumerable]: http://ruby-doc.org/core/Enumerable.html
+[atom]: https://atom.io/
+[gems]: http://rubygems.org/
+[exercism.io]: http://exercism.io/
+[ruby koans]: http://rubykoans.com/
+[codementor]: https://www.codementor.io/
+[mocha]: http://gofreerange.com/mocha/docs/
+
+<!-- Rails Related Technologies -->
+[rest]: http://en.wikipedia.org/wiki/Representational_State_Transfer
+[jbuilder]: https://github.com/rails/jbuilder
+[capistrano]: http://capistranorb.com/
+[capistrano-rails]: https://github.com/capistrano/rails
+[warbler]: https://github.com/jruby/warbler
+[google chrome]: https://www.google.com/chrome/browser/
+[rails way]: https://www.safaribooksonline.com/library/view/the-railstm-4/9780133487954/
+[rails home]: http://rubyonrails.org/
+[rails api]: http://api.rubyonrails.org/
+[rails guides]: http://guides.rubyonrails.org/
+[devise]: https://github.com/plataformatec/devise
+[pundit]: https://github.com/elabs/pundit
+[factory_girl]: https://github.com/thoughtbot/factory_girl
+[rails installer]: http://railsinstaller.org/en
