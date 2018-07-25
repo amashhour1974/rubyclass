@@ -1,0 +1,17 @@
+msc {
+  b [label="Browser"],
+  r [label="Router"],
+  c [label="Controller"],
+  v [label="View"],
+  m [label="Model"];
+
+  b->r [label="GET /artists", ID="(1)"];
+  r=>c [label="ArtistsController::new", ID="(2)"];
+  r<-c [label="@controller"];
+  r=>c [label="@controller.index", ID="(3)"];
+  c=>m [label="Artist::all", ID="(4)"];
+  c<-m [label="@artists"];
+  c=>v [label="render", ID="(5)"];
+  c<-v [label="index.html.erb", ID="(6)"];
+  b<-c [label="HTML", ID="(7)"];
+}

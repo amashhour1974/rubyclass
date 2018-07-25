@@ -1,0 +1,14 @@
+digraph Poly {
+
+  // ###########################################################################
+  graph [rankdir=LR];
+  node  [shape=record];
+  edge  [];
+
+  // ###########################################################################
+  "Comment" [label="Comment | - commentable_type | - commentable_id"];
+
+  // ###########################################################################
+  "Artist" -> "Comment" [label="has_many(:comments, as: :commentable)"];
+  "Album"  -> "Comment" [label="has_many(:comments, as: :commentable)"];
+}

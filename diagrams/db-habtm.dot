@@ -1,0 +1,34 @@
+digraph DBHABTM {
+
+  // ###########################################################################
+  graph [rankdir=TB];
+  node  [shape=record];
+  edge  [];
+
+  // ###########################################################################
+  subgraph one {
+    rank=same;
+    Movie;
+    Actor;
+  }
+
+  // ###########################################################################
+  subgraph two {
+    rank=same;
+    t1 [label="{Table: movies | Method: actors}"];
+    t2 [label="{Table: actors | Method: movies}"];
+  }
+
+  // ###########################################################################
+  subgraph three {
+    t3 [label="{Table: actors_movies | Foreign Key: movie_id | Foreign Key: actor_id}"];
+  }
+
+  // ###########################################################################
+  Movie -> Actor [label="has_and_belongs_to_many"];
+  Actor -> Movie [label="has_and_belongs_to_many"];
+  Movie -> t1 [style=dotted, dir=none];
+  Actor -> t2 [style=dotted, dir=none];
+  t1 -> t3;
+  t2 -> t3;
+}

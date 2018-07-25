@@ -1,0 +1,33 @@
+digraph hierarchy {
+
+  // ###########################################################################
+  node [shape=record];
+  edge [dir=back, arrowtail=empty];
+
+  // ###########################################################################
+  exception [label="Exception"];
+  script    [label="ScriptError"];
+  syntax    [label="SyntaxError"];
+  load      [label="LoadError"];
+  nomem     [label="NoMemoryError"];
+  sig       [label="SignalException"];
+  interrupt [label="Interrupt"];
+  std       [label="StandardError",fillcolor=gold,color=dodgerblue4];
+  runtime   [label="RuntimeError"];
+  name      [label="NameError"];
+  method    [label="NoMethodError"];
+  args      [label="ArgumentError"];
+
+  // ###########################################################################
+  exception -> script;
+  script    -> syntax;
+  script    -> load;
+  exception -> nomem;
+  exception -> sig;
+  sig       -> interrupt;
+  exception -> std;
+  std       -> runtime;
+  std       -> name;
+  name      -> method;
+  std       -> args;
+}

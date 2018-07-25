@@ -1,0 +1,26 @@
+digraph XSFR {
+
+  // ###########################################################################
+  graph [];
+  node  [shape=none];
+  edge  [];
+
+  // ###########################################################################
+  attacker     [label="Attacker", fillcolor=hotpink];
+  victim       [label="Victim"];
+
+  // ###########################################################################
+  logs_into_site [label="Logs into target site"];
+  other_site     [label="Visits comprised site"];
+  log_out        [label="Does not log out of target site"];
+  post_form      [label="Submits malicious content to vulnerable site", fillcolor=hotpink];
+  bad_site       [label="Site comprised", fillcolor=hotpink];
+  form_submit    [label="Form automatically submitted to target site", fillcolor=hotpink];
+  authority      [label="Exercises victim's authority on target site", fillcolor=hotpink];
+
+  // ###########################################################################
+  victim -> logs_into_site -> log_out -> other_site -> form_submit -> authority;
+  attacker -> authority;
+  attacker -> post_form -> bad_site;
+  bad_site -> other_site [style=invis];
+}

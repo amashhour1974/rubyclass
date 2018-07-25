@@ -1,0 +1,21 @@
+digraph BrowserWebapp {
+
+  // ###########################################################################
+  graph [rankdir=TB, nodesep="0.5"];
+  node  [shape=box];
+  edge  [dir=both];
+
+  // ###########################################################################
+  browser [label="Browser", shape=oval];
+  server  [label="Web Server", shape=oval];
+  webapp  [label="Web Application (Rails)"];
+  db      [label="Database (SQLite)"];
+  
+  // ###########################################################################
+  {
+    rank=same;
+    browser -> server [label="HTTP"];
+  }
+
+  server -> webapp -> db;
+}

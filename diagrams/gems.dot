@@ -1,0 +1,40 @@
+digraph Gems {
+
+  // ###########################################################################
+  node [shape=record];
+  edge [arrowtail="none", arrowhead="none"];
+
+  // ###########################################################################
+  "Rails" -> "ActionMailer";
+  "Rails" -> "ActionPack";
+  "Rails" -> "ActionView";
+  "Rails" -> "ActiveModel";
+  "Rails" -> "ActiveRecord";
+  "Rails" -> "ActiveSupport";
+  "Rails" -> "Arel";
+  "Rails" -> "Railties";
+  "Rails" -> "...";
+
+  // ###########################################################################
+  "ActionMailer" -> "ActionPack";
+  "ActionMailer" -> "ActionView";
+
+  // ###########################################################################
+  "ActionPack" -> "ActionView";
+  "ActionPack" -> "ActiveSupport";
+
+  // ###########################################################################
+  "ActionView" -> "ActiveSupport";
+
+  // ###########################################################################
+  "ActiveModel" -> "ActiveSupport";
+
+  // ###########################################################################
+  "ActiveRecord" -> "ActiveModel";
+  "ActiveRecord" -> "ActiveSupport";
+  "ActiveRecord" -> "Arel";
+
+  // ###########################################################################
+  "Railties" -> "ActionPack";
+  "Railties" -> "ActiveSupport";
+}

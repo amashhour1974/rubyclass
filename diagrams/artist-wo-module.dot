@@ -1,0 +1,21 @@
+digraph hierarchy {
+  node [shape=record,fillcolor=white,color=gray75,fontcolor=gray75];
+  edge [dir=back, arrowtail=empty,color=gray75];
+  
+  basic  [label="BasicObject"];
+  object [label="Object", fillcolor=gray95,color=black,fontcolor=black];
+  string [label="String"];
+  nil    [label="NilClass"];
+  other  [label="..."];
+
+  basic  -> object [color=gray75];
+  object -> string;
+  object -> other;
+  object -> nil;
+
+  node [shape=record,fillcolor=gray95,color=black,fontcolor=black];
+  edge [dir=back, arrowtail=empty,color=black];
+
+  artist [label="Artist"];
+  object -> artist;
+}

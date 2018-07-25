@@ -1,0 +1,13 @@
+msc {
+  a [label="Client"], b [label="Server"];
+
+  a->b [label="GET / HTTP/1.1", ID="(1)"];
+  a<-b [label="HTTP/1.1 200 OK", ID="(2)"];
+
+  |||;
+  ---  [label="Client parses HTML document"];
+  |||;
+
+  a->b [label="GET /logo.jpg HTTP/1.1", ID="(3)"];
+  a<-b [label="HTTP/1.1 200 OK", ID="(4)"];
+}

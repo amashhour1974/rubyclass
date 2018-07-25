@@ -1,0 +1,15 @@
+digraph Roles {
+
+  // ###########################################################################
+  graph [rankdir=LR];
+  node  [shape=record];
+  edge  [];
+
+  // ###########################################################################
+  "Role" [label="Role | - name"];
+  "Permission" [label="Permission | - name"];
+
+  // ###########################################################################
+  "User" -> "Role" [label="has_many"];
+  "Role" -> "Permission" [label="has_many"];
+}

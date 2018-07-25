@@ -1,0 +1,28 @@
+digraph DBHasOne {
+
+  // ###########################################################################
+  graph [rankdir=TB];
+  node  [shape=record];
+  edge  [];
+
+  // ###########################################################################
+  subgraph one {
+    rank=same;
+    Building;
+    Address;
+  }
+
+  // ###########################################################################
+  subgraph two {
+    rank=same;
+    id [label="{Table: buildings | Primary Key: id | Method: address}"];
+    building_id [label="{Table: addresses | Foreign Key: building_id | Method: building}"];
+  }
+
+  // ###########################################################################
+  Building -> Address [label="has_one"];
+  Address  -> Building [label="belongs_to"];
+  Building -> id [style=dotted, dir=none];
+  Address -> building_id [style=dotted, dir=none];
+  id -> building_id [dir=back];
+}

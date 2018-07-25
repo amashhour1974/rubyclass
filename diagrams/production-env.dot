@@ -1,0 +1,48 @@
+digraph Production {
+
+  // ###########################################################################
+  graph [rankdir=TB];
+  node  [shape=record];
+  edge  [];
+
+  // ###########################################################################
+  lb   [label="Load Balancer"];
+  ws1  [label="Web Server"];
+  ws2  [label="Web Server"];
+  ws3  [label="Web Server"];
+  ws4  [label="Web Server"];
+  rws1 [label="Ruby HTTP"];
+  rws2 [label="Ruby HTTP"];
+  rws3 [label="Ruby HTTP"];
+  rws4 [label="Ruby HTTP"];
+  ror1 [label="RoR App"];
+  ror2 [label="RoR App"];
+  ror3 [label="RoR App"];
+  ror4 [label="RoR App"];
+  q    [label="Background Queue"];
+  c    [label="Cache"];
+  db   [label="Database"];
+  dbh  [label="Database Hot Spare"];
+
+  // ###########################################################################
+  lb -> ws1 -> rws1 -> ror1;
+  lb -> ws2 -> rws2 -> ror2;
+  lb -> ws3 -> rws3 -> ror3;
+  lb -> ws4 -> rws4 -> ror4;
+  db -> dbh;
+
+  ror1 -> db;
+  ror2 -> db;
+  ror3 -> db;
+  ror4 -> db;
+
+  ror1 -> q;
+  ror2 -> q;
+  ror3 -> q;
+  ror4 -> q;
+
+  ror1 -> c;
+  ror2 -> c;
+  ror3 -> c;
+  ror4 -> c;
+}

@@ -1,0 +1,17 @@
+digraph BrowserServer {
+
+  // ###########################################################################
+  graph [rankdir=LR];
+  node  [];
+  edge  [dir=both];
+
+  // ###########################################################################
+  browser [label="Browser", shape=box];
+  inet    [label="Net", shape=none, image="diagrams/ruby/rails/cloud.ps", fillcolor=white];
+  server  [label="Web Server|Your App/Rails|Database", shape=record];
+  
+  // ###########################################################################
+  browser -> inet;
+  inet -> server;
+  browser -> server [label="HTTP", style=dashed, dir=none];
+}

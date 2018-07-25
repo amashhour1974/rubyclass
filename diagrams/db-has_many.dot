@@ -1,0 +1,28 @@
+digraph DBHasMany {
+
+  // ###########################################################################
+  graph [rankdir=TB];
+  node  [shape=record];
+  edge  [];
+
+  // ###########################################################################
+  subgraph one {
+    rank=same;
+    Person;
+    PhoneNumber;
+  }
+
+  // ###########################################################################
+  subgraph two {
+    rank=same;
+    id [label="{Table: people | Primary Key: id | Method: phone_numbers}"];
+    person_id [label="{Table: phone_numbers | Foreign Key: person_id | Method: person}"];
+  }
+
+  // ###########################################################################
+  Person -> PhoneNumber [label="has_many"];
+  PhoneNumber -> Person [label="belongs_to"];
+  Person -> id [style=dotted, dir=none];
+  PhoneNumber -> person_id [style=dotted, dir=none];
+  id -> person_id [dir=back];
+}

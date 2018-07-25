@@ -1,0 +1,22 @@
+digraph Components {
+  graph [layout=twopi, overlap="true"];
+  node  [shape=plaintext, style="", fillcolor=""];
+  edge  [style=invis];
+
+  "Web Server"         -> logic;
+  "Request Parser"     -> logic;
+  "Request Router"     -> logic;
+  "Database Adapter"   -> logic;
+  "Mailer"             -> logic;
+  "HTML Generator"     -> logic;
+  "Data Serialization" -> logic;
+  "Testing Library"    -> logic;
+  "Authentication"     -> logic;
+  "Logging"            -> logic;
+  "Authorization"      -> logic;
+  "Session Management" -> logic;
+  
+  logic [label="Business Logic",
+         fillcolor=lightpink];
+
+}

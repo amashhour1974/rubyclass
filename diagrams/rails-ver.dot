@@ -1,0 +1,21 @@
+digraph RailsVer {
+
+  // ###########################################################################
+  graph [];
+  node  [shape=none];
+  edge  [];
+
+  // ###########################################################################
+  version [label=<<table border="0" cellborder="0" bgcolor="#d7d7f0">
+                    <tr>
+                      <td port="major">4</td><td>.</td>
+                      <td port="minor">1</td><td>.</td>
+                      <td port="patch">2</td>
+                    </tr>
+                  </table>>];
+
+  // ###########################################################################
+  "Major" -> version:major;
+  "Minor" -> version:minor;
+  "Patch" -> version:patch;
+}

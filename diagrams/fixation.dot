@@ -1,0 +1,24 @@
+digraph Fixation {
+
+  // ###########################################################################
+  graph [];
+  node  [shape=none];
+  edge  [];
+
+  // ###########################################################################
+  attacker     [label="Attacker", fillcolor=hotpink];
+  victim       [label="Victim"];
+
+  // ###########################################################################
+  new_session [label="Creates new session on target site", fillcolor=hotpink];
+  passes_session [label="Passes session ID on to victim", fillcolor=hotpink];
+  logs_on [label="Logs on to target site"];
+  bad_session_id [label="Target site does not issue new session ID", fillcolor=hotpink];
+  hijack [label="Attacker has same session ID as victim", fillcolor=hotpink];
+
+  // ###########################################################################
+  attacker -> new_session -> passes_session;
+  victim -> logs_on -> bad_session_id -> hijack;
+  attacker -> hijack;
+  passes_session -> victim [style=invis];
+}

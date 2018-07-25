@@ -1,0 +1,33 @@
+digraph hierarchy {
+  node [shape=record];
+  edge [dir=back, arrowtail=empty];
+  
+  basic  [label="BasicObject",fillcolor=white,color=gray75,fontcolor=gray75];
+  object [label="Object"];
+  string [label="String"];
+  nil    [label="NilClass"];
+  true   [label="TrueClass"];
+  false  [label="FalseClass"];
+  other  [label="..."];
+
+  numeric [label="Numeric"];
+  float   [label="Float"];
+  integer [label="Integer"];
+  fixnum  [label="Fixnum"];
+  bignum  [label="Bignum"];
+  bigd    [label="BigDecimal"];
+  
+  basic  -> object [color=gray75];
+  object -> string;
+  object -> other;
+  object -> nil;
+  object -> true;
+  object -> false;
+
+  object -> numeric;
+  numeric -> float;
+  numeric -> bigd;
+  numeric -> integer;
+  integer -> fixnum;
+  integer -> bignum;
+}

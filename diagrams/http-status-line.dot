@@ -1,0 +1,21 @@
+digraph HTTPStatusLine {
+
+  // ###########################################################################
+  graph [];
+  node  [shape=none];
+  edge  [];
+
+  // ###########################################################################
+  res   [label=<<table border="0" cellborder="0" cellspacing="10" bgcolor="#d7d7f0">
+                    <tr>
+                    <td port="ver">HTTP/1.1</td>
+                      <td port="code">200</td>
+                      <td port="reason">OK</td>
+                    </tr>
+                  </table>>];
+
+  // ###########################################################################
+  "Protocol Version"   -> res:ver;
+  "Status Code"        -> res:code;
+  "Reason Phrase"      -> res:reason;
+}

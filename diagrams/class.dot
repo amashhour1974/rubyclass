@@ -1,0 +1,31 @@
+digraph Class {
+
+  // ###########################################################################
+  graph [rankdir=LR];
+  node [shape=record];
+  edge [dir=back];
+
+  // ###########################################################################
+  class  [label="Class",fillcolor=white,color=gray75,fontcolor=gray75];
+  object [label="Object",fillcolor=white,color=gray75,fontcolor=gray75];
+
+
+  string 
+    [label=<<table border="0" cellborder="1" cellspacing="0">
+                  <tr><td port="A" bgcolor="#d7d7f0"><b>String</b></td></tr>
+                  <tr><td port="S" bgcolor="#ffffff">superclass</td></tr>
+                  <tr><td bgcolor="#ffffff">@@ variables</td></tr>                   
+                  <tr><td bgcolor="#ffffff">methods</td></tr>                   
+                  <tr><td></td></tr>
+                  <tr><td port="C" bgcolor="#ffffff">class</td></tr>
+                  <tr><td bgcolor="#ffffff">@ variables</td></tr>
+                </table>>, shape=plaintext];
+
+  instance [label="\"Hello World\" | <C> class | @ variables",
+            fillcolor=white,color=gray75,fontcolor=gray75];
+
+  // ###########################################################################
+  class    -> string:C   [color=gray75];
+  object   -> string:S   [color=gray75];
+  string:A -> instance:C [color=gray75];
+}

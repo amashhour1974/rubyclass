@@ -1,0 +1,17 @@
+digraph HTMLDOM {
+
+  // ###########################################################################
+  graph [rankdir=TB];
+  node  [shape="oval"];
+  edge  [];
+
+  // ###########################################################################
+  hw [label="\"Hello World!\"", shape="box"];
+  welcome [label="\"Welcome\"", shape="box"];
+  awesome [label="\"Awesome Site!\"", shape="box"];
+
+  // ###########################################################################
+  html -> head -> title -> hw;
+  html -> body -> h1 -> welcome;
+  body -> p -> awesome;
+}

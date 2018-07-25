@@ -1,0 +1,21 @@
+digraph HTTPReq {
+
+  // ###########################################################################
+  graph [];
+  node  [shape=none];
+  edge  [];
+
+  // ###########################################################################
+  req   [label=<<table border="0" cellborder="0" cellspacing="10" bgcolor="#d7d7f0">
+                    <tr>
+                    <td port="verb">GET</td>
+                      <td port="file">/</td>
+                      <td port="ver">HTTP/1.1</td>
+                    </tr>
+                  </table>>];
+
+  // ###########################################################################
+  "Method/Verb"        -> req:verb;
+  "File/Resource Path" -> req:file;
+  "Protocol Version"   -> req:ver;
+}

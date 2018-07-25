@@ -1,0 +1,23 @@
+digraph Class {
+
+  // ###########################################################################
+  graph [rankdir=LR];
+  node [shape=record];
+  edge [dir=back];
+
+  // ###########################################################################
+  module [label="Module",fillcolor=white,color=gray75,fontcolor=gray75];
+
+  enumerable
+    [label=<<table border="0" cellborder="1" cellspacing="0">
+                  <tr><td port="A" bgcolor="#d7d7f0"><b>Enumerable</b></td></tr>
+                  <tr><td bgcolor="#ffffff">@@ variables</td></tr>                   
+                  <tr><td bgcolor="#ffffff">methods</td></tr>                   
+                  <tr><td></td></tr>
+                  <tr><td port="C" bgcolor="#ffffff">class</td></tr>
+                  <tr><td bgcolor="#ffffff">@ variables</td></tr>
+                </table>>, shape=plaintext];
+
+  // ###########################################################################
+  module -> enumerable:C   [color=gray75];
+}

@@ -1,0 +1,18 @@
+digraph Object {
+
+  // ###########################################################################
+  graph [rankdir=LR];
+  node [shape=record];
+  edge [dir=back];
+
+  // ###########################################################################
+  class  [label="String",fillcolor=white,color=gray75,fontcolor=gray75];
+  object [label=<<table border="0" cellborder="1" cellspacing="0">
+                   <tr><td bgcolor="#d7d7f0"><b>"Hello World"</b></td></tr>
+                   <tr><td port="C" bgcolor="#ffffff">class</td></tr>
+                   <tr><td bgcolor="#ffffff">@ variables</td></tr>
+                 </table>>, shape=plaintext];
+
+  // ###########################################################################
+  class -> object:C [color=gray75];
+}

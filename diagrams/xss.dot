@@ -1,0 +1,25 @@
+digraph XSS {
+
+  // ###########################################################################
+  graph [layout=circo];
+  node  [shape=record];
+  edge  [];
+
+  // ###########################################################################
+  start        [label="Start", shape=oval];
+  attacker     [label="Attacker", shape=circle, fillcolor=hotpink];
+  victim       [label="Victim", shape=circle];
+  post_comment [label="Submits\nmalicious\ncontent", fillcolor=hotpink];
+  server       [label="Vulnerable\nSite", shape=circle];
+  view_comment [label="Loads page with\nmalicious content"];
+  leak         [label="Malicious comment\nleaks info" fillcolor=hotpink];
+
+  // ###########################################################################
+  start -> attacker;
+  attacker -> post_comment [label="(1)"];
+  post_comment -> server [label="(2)"];
+  victim -> server [label="(3)"];
+  server -> view_comment [label="(4)"];
+  view_comment -> leak [label="(5)"];
+  leak -> attacker [label="(6)"];
+}

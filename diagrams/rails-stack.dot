@@ -1,0 +1,17 @@
+digraph RailsStack {
+
+  // ###########################################################################
+  graph [rankdir=TB, nodesep=0.1];
+  node  [shape=record, width=2];
+  edge  [len=0.2];
+
+  // ###########################################################################
+  rws   [label="Ruby HTTP Server"];
+  rack  [label="Rack"];
+  rmid  [label="Rails Middleware"];
+  route [label="Rails Routing"];
+  cont  [label="Rails Controllers"];
+
+  // ###########################################################################
+  rws -> rack -> rmid -> route -> cont;
+}

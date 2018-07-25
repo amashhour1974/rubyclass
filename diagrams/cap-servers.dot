@@ -1,0 +1,18 @@
+digraph CapServers {
+
+  // ###########################################################################
+  graph [rankdir=TB];
+  node  [shape=record];
+  edge  [];
+
+  // ###########################################################################
+  production [label="Production"];
+  app [label="{ Server: x | Role: app | Rails Application }"];
+  web [label="{ Server: y | Role: web | Web Server }"];
+  db  [label="{ Server: z | Role: db  | Database }"];
+  
+  // ###########################################################################
+  production -> app;
+  production -> web;
+  production -> db;
+}

@@ -1,0 +1,24 @@
+digraph Layout {
+
+  // ###########################################################################
+  graph [rankdir=TB];
+  node [shape=folder];
+  edge [arrowtail="none", arrowhead="none"];
+
+  // ###########################################################################
+  myprojectbinfile [label="myproject", shape=note];
+  myprojectlibdir [label="myproject"];
+  myprojectlibfile [label="myproject.rb", shape=note];
+  footest [label="foo_test.rb", shape=note];
+  foolib [label="foo.rb", shape=note];
+
+  // ###########################################################################
+  myproject -> bin;
+  bin -> myprojectbinfile;
+  myproject -> lib;
+  myproject -> test;
+  test -> footest;
+  lib -> myprojectlibdir;
+  lib -> myprojectlibfile;
+  myprojectlibdir -> foolib;
+}
