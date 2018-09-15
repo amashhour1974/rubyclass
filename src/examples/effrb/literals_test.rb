@@ -7,7 +7,7 @@
 # in the LICENSE.md file.
 
 ################################################################################
-require(File.expand_path('../lib/test.rb', File.dirname(__FILE__)))
+require('minitest/autorun')
 
 ################################################################################
 class LiteralsTest < MiniTest::Unit::TestCase

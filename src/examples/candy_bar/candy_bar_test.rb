@@ -1,5 +1,5 @@
 require('minitest/autorun')
-require('candy_bar')
+require_relative('candy_bar')
 
 class CandyBarTest < MiniTest::Test
 

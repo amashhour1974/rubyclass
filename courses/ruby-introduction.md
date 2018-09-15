@@ -64,7 +64,7 @@ Training Delivery {.unnumbered}
     - Blocks and the Iteration Pattern
     - Converting Variables Between Core Types
     - How to Read and Understand Ruby Documentation
-    - Unit Testing with [MiniTest] []
+    - Unit Testing with [MiniTest][]
 
   * Practical Ruby
 
@@ -84,7 +84,7 @@ Training Delivery {.unnumbered}
     - Working With Regular Expressions in Ruby
     - Using Modules to Create Namespaces
     - RubyGems and Dependency Management
-    - Specification Testing with [RSpec] []
+    - Specification Testing with [RSpec][]
 
   * Intermediate Ruby
 
@@ -105,5 +105,10 @@ Training Delivery {.unnumbered}
     - Interactive Debugging of Ruby Code
     - Common Optimization Techniques
 
+
 <!-- Place Holder -->
-<<(../content/rbintro.md)
+<<(../content/ruby/basics.md)
+<<(../content/ruby/practical.md)
+<<(../content/cucumber/index.md)
+<<(../content/ruby/intermediate.md)
+<<(../content/ruby/resources.md)

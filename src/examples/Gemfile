@@ -6,3 +6,8 @@ gem('rspec')
 gem('rake')
 gem('minitest')
 gem('byebug')
+
+################################################################################
+# For Cucumber
+gem('cucumber')
+gem('rspec-expectations')
